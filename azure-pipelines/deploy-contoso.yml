@@ -1,0 +1,42 @@
+# trigger:
+# - none
+# - master
+
+trigger:
+- none
+
+variables:
+
+  ### Variables ###
+  key1: 'value1'
+  key2: 'value2'
+  key3: 'value3'
+
+pool:
+  name: Azure Pipelines
+  demands: npm
+
+steps:
+- task: CopyFiles@2
+  displayName: 'Copy Files to:  $(build.artifactstagingdirectory)/Templates'
+  inputs:
+    SourceFolder: deployment
+    Contents: '*.json'
+    TargetFolder: ' $(build.artifactstagingdirectory)/Templates'
+
+- task: Npm@1
+  displayName: 'npm custom'
+  inputs:
+    command: custom
+    verbose: false
+    customCommand: 'install --production'
+
+- task: ArchiveFiles@2
+  displayName: 'Archive $(Build.SourcesDirectory)'
+  inputs:
+    rootFolderOrFile: '$(Build.SourcesDirectory)'
+    includeRootFolder: false
+    archiveFile: '$(Build.ArtifactStagingDirectory)/ContosoAir-$(Build.BuildId).zip'
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: drop'
