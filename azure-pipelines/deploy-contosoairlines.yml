@@ -9,7 +9,7 @@ variables:
 
   ### Variables ###
   accountName: '$(ACCOUNT_NAME)'
-  applicationName: 'castor'
+  applicationName: 'contosoairlines'
   resourceGroupName: '$(applicationName)-rg'
   appServicePlanName: '$(applicationName)-sp'
   prefix: '$(accountName)-$(applicationName)'
