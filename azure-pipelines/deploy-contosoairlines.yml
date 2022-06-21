@@ -25,21 +25,21 @@ stages:
   ################################################################################
   #                         Initialize Azure Stage                               #
   ################################################################################
-  - stage: Init_Env
-    jobs:
-      - job: Create_Service_Plan
-        steps:
-        # Use ARM Template to create Azure Service Plan
-        - task: AzureResourceManagerTemplateDeployment@3
-          inputs:
-            deploymentScope: 'Resource Group'
-            azureResourceManagerConnection: 'anthony.angelo'
-            subscriptionId: '0212baad-e8a6-41d3-8d3d-75050f31bf1f'
-            action: 'Create Or Update Resource Group'
-            resourceGroupName: '$(resourceGroupName)'
-            location: 'East US'
-            templateLocation: 'Linked artifact'
-            csmFile: 'azure-arm/contosoairlines.json'
-            csmParametersFile: 'azure-arm/contosoairlines.parameters.json'
-            overrideParameters: '-appServicePlanName $(appServicePlanName) -skuName $(skuName) -skuCapacity $(skuCapacity)'
-            deploymentMode: 'Incremental'
+  # - stage: Init_Env
+  #   jobs:
+  #     - job: Create_Service_Plan
+  #       steps:
+  #       # Use ARM Template to create Azure Service Plan
+  #       - task: AzureResourceManagerTemplateDeployment@3
+  #         inputs:
+  #           deploymentScope: 'Resource Group'
+  #           azureResourceManagerConnection: 'anthony.angelo'
+  #           subscriptionId: '0212baad-e8a6-41d3-8d3d-75050f31bf1f'
+  #           action: 'Create Or Update Resource Group'
+  #           resourceGroupName: '$(resourceGroupName)'
+  #           location: 'East US'
+  #           templateLocation: 'Linked artifact'
+  #           csmFile: 'azure-arm/contosoairlines.json'
+  #           csmParametersFile: 'azure-arm/contosoairlines.parameters.json'
+  #           overrideParameters: '-appServicePlanName $(appServicePlanName) -skuName $(skuName) -skuCapacity $(skuCapacity)'
+  #           deploymentMode: 'Incremental'
