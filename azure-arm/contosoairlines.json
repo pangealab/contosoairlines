@@ -4,7 +4,10 @@
     "parameters": {
         "appServicePlanName": {
             "type": "string"
-        }
+        },
+        "accountName": {
+            "type": "string"
+        }    
     },
     "variables": {},
     "resources": [
@@ -28,6 +31,34 @@
                 "name": "B1",
                 "capacity": "1"
             }
-        }       
+        },
+        {
+            "apiVersion": "2021-05-15",
+            "name": "[parameters('accountName')]",
+            "type": "Microsoft.DocumentDB/databaseAccounts",
+            "location": "[resourceGroup().location]",
+            "kind": "GlobalDocumentDB",
+            "properties": {
+                "consistencyPolicy": {
+                    "defaultConsistencyLevel": "Eventual",
+                    "maxStalenessPrefix": 1,
+                    "maxIntervalInSeconds": 5
+                },
+                "locations": [
+                    {
+                        "locationName": "location1",
+                        "failoverPriority": 0
+                    }
+                ],
+                "databaseAccountOfferType": "Standard",
+                "ipRangeFilter": "ipRangeFilter",
+                "enableAutomaticFailover": true,
+                "capabilities": [
+                    {
+                        "name": "EnableTable"
+                    }
+                ]
+            }
+        }              
     ]
 }
