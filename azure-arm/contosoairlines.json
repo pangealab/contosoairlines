@@ -12,13 +12,15 @@
             "type": "int"
         }  
     },
-    "variables": {},
+    "variables": {
+        "location": "[resourceGroup().location]"
+    },
     "resources": [
         {
             "apiVersion": "2020-06-01",
             "name": "[parameters('appServicePlanName')]",
             "type": "Microsoft.Web/serverfarms",
-            "location": "[resourceGroup().location]",
+            "location": "[variables('location')]",
             "kind": "linux",
             "properties": {
                 "perSiteScaling": false,
