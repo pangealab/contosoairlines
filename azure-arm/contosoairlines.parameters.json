@@ -4,9 +4,6 @@
     "parameters": {
         "appServicePlanName": {
             "value": null
-        },
-        "location": {
-            "value": null
         }
     }
 }
