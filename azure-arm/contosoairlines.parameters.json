@@ -2,14 +2,14 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "appServicePlanName": {
-            "value": null
+        "name": {
+            "value": "contosoairlines"
         },
-        "skuName": {
-            "value": null
+        "location": {
+            "value": "eastus"
         },
-        "skuCapacity": {
-            "value": null
-        }        
+        "locationName": {
+            "value": "East US"
+        }
     }
 }
