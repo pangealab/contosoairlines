@@ -7,7 +7,7 @@
         },
         "location": {
             "defaultValue": "[resourceGroup().location]"
-        },           
+        },
         "skuName": {
             "value": null
         },
