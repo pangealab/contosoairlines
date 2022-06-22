@@ -4,6 +4,9 @@
     "parameters": {
         "appServicePlanName": {
             "type": "string"
+        },
+        "location": {
+            "type": "string"
         }
     },
     "variables": {},
@@ -12,7 +15,7 @@
             "apiVersion": "2020-06-01",
             "name": "[parameters('appServicePlanName')]",
             "type": "Microsoft.Web/serverfarms",
-            "location": "East US",
+            "location": "[parameters('location')]",
             "kind": "linux",
             "properties": {
                 "perSiteScaling": false,

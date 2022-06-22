@@ -12,8 +12,6 @@ variables:
   resourceGroupName: '$(applicationName)-rg'
   appServicePlanName: '$(applicationName)-sp'  
   location: 'East US'
-  skuName: 'B1'
-  skuCapacity: 1
 
 pool:
   vmImage: 'ubuntu-latest'
