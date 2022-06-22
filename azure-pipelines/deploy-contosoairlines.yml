@@ -39,9 +39,5 @@ stages:
             templateLocation: 'Linked artifact'
             csmFile: 'azure-arm/contosoairlines.json'
             csmParametersFile: 'azure-arm/contosoairlines.parameters.json'
-<<<<<<< HEAD
             overrideParameters: '-appServicePlanName $(appServicePlanName)'
-=======
-            overrideParameters: '-appServicePlanName $(appServicePlanName) -location $(location) -skuName $(skuName) -skuCapacity $(skuCapacity)'
->>>>>>> 5e0bfa69ba268bb86649a6af55ce05952046ce47
             deploymentMode: 'Incremental'
