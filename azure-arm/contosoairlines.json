@@ -4,26 +4,15 @@
     "parameters": {
         "appServicePlanName": {
             "type": "string"
-        },
-        "location": {
-            "type": "string"
-        },
-        "skuName": {
-            "type": "string"
-        }, 
-        "skuCapacity": {
-            "type": "int"
-        }  
+        }
     },
-    "variables": {
-        "location": "[resourceGroup().location]"
-    },
+    "variables": {},
     "resources": [
         {
             "apiVersion": "2020-06-01",
             "name": "[parameters('appServicePlanName')]",
             "type": "Microsoft.Web/serverfarms",
-            "location": "[variables('location')]",
+            "location": "East US",
             "kind": "linux",
             "properties": {
                 "perSiteScaling": false,
@@ -36,8 +25,8 @@
                 "targetWorkerSizeId": 0
             },
             "sku": {
-                "name": "[parameters('skuName')]",
-                "capacity": "[parameters('skuCapacity')]"
+                "name": "B1",
+                "capacity": "1"
             }
         }       
     ]
