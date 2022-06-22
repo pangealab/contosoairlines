@@ -39,19 +39,18 @@
             "location": "[resourceGroup().location]",
             "kind": "GlobalDocumentDB",
             "properties": {
+                "databaseAccountOfferType": "Standard",
+                "locations": [
+                    {
+                        "locationName": "[resourceGroup().location]",
+                        "failoverPriority": 0
+                    }
+                ],                
                 "consistencyPolicy": {
                     "defaultConsistencyLevel": "Eventual",
                     "maxStalenessPrefix": 1,
                     "maxIntervalInSeconds": 5
                 },
-                "locations": [
-                    {
-                        "locationName": "location1",
-                        "failoverPriority": 0
-                    }
-                ],
-                "databaseAccountOfferType": "Standard",
-                "ipRangeFilter": "ipRangeFilter",
                 "enableAutomaticFailover": true,
                 "capabilities": [
                     {
