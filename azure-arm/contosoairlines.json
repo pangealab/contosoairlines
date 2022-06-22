@@ -5,6 +5,9 @@
         "appServicePlanName": {
             "type": "string"
         },
+        "location": {
+            "type": "string"
+        },
         "skuName": {
             "type": "string"
         }, 

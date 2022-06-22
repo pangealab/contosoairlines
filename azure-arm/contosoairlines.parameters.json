@@ -4,12 +4,15 @@
     "parameters": {
         "appServicePlanName": {
             "value": null
-        },     
+        },
+        "location": {
+            "defaultValue": "[resourceGroup().location]"
+        },           
         "skuName": {
             "value": null
         },
         "skuCapacity": {
             "value": null
-        } 
+        }
     }
 }
