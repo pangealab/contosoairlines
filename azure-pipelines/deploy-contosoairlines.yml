@@ -8,11 +8,9 @@ trigger:
 variables:
 
   ### Variables ###
-  accountName: '$(ACCOUNT_NAME)'
   applicationName: 'contosoairlines'
   resourceGroupName: '$(applicationName)-rg'
   appServicePlanName: '$(applicationName)-sp'
-  prefix: '$(accountName)-$(applicationName)'
   location: 'East US'
   skuName: 'B1'
   skuCapacity: 1
