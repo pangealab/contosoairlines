@@ -36,8 +36,12 @@
             "apiVersion": "2021-05-15",
             "name": "[parameters('accountName')]",
             "type": "Microsoft.DocumentDB/databaseAccounts",
+            "kind": "MongoDB",            
             "location": "[resourceGroup().location]",
-            "kind": "GlobalDocumentDB",
+            "tags": {
+                "defaultExperience": "MongoDB"
+            },
+            "scale": null,
             "properties": {
                 "databaseAccountOfferType": "Standard",
                 "locations": [
@@ -47,17 +51,12 @@
                     }
                 ],                
                 "consistencyPolicy": {
-                    "defaultConsistencyLevel": "Eventual",
-                    "maxStalenessPrefix": 1,
-                    "maxIntervalInSeconds": 5
-                },
-                "enableAutomaticFailover": true,
-                "capabilities": [
-                    {
-                        "name": "EnableTable"
-                    }
-                ]
-            }
+                    "defaultConsistencyLevel": "Session",
+                    "maxIntervalInSeconds": 5,
+                    "maxStalenessPrefix": 100
+                }
+            },
+            "dependsOn": []
         }              
     ]
 }
