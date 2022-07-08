@@ -13,4 +13,4 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      echo "Hello world..."
+      echo "Test Pipeline..."
