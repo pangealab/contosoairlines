@@ -1,0 +1,16 @@
+# Test Pipeline
+
+trigger:
+- none
+
+pr: none
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: |
+      echo "Test Pipeline..."

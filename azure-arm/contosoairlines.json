@@ -4,7 +4,10 @@
     "parameters": {
         "appServicePlanName": {
             "type": "string"
-        }
+        },
+        "accountName": {
+            "type": "string"
+        }    
     },
     "variables": {},
     "resources": [
@@ -28,6 +31,32 @@
                 "name": "B1",
                 "capacity": "1"
             }
-        }       
+        },
+        {
+            "apiVersion": "2021-05-15",
+            "name": "[parameters('accountName')]",
+            "type": "Microsoft.DocumentDB/databaseAccounts",
+            "kind": "MongoDB",            
+            "location": "[resourceGroup().location]",
+            "tags": {
+                "defaultExperience": "MongoDB"
+            },
+            "scale": null,
+            "properties": {
+                "databaseAccountOfferType": "Standard",
+                "locations": [
+                    {
+                        "locationName": "[resourceGroup().location]",
+                        "failoverPriority": 0
+                    }
+                ],                
+                "consistencyPolicy": {
+                    "defaultConsistencyLevel": "Session",
+                    "maxIntervalInSeconds": 5,
+                    "maxStalenessPrefix": 100
+                }
+            },
+            "dependsOn": []
+        }              
     ]
 }
